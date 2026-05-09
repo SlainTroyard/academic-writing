@@ -170,20 +170,24 @@ If multiple antecedents exist, repeat the noun.
 
 Avoid `-ing` participial phrases when they obscure agency, causality, or temporal order.
 
+> **AI overuse warning:** LLM-generated prose disproportionately produces trailing participial phrases ("..., making it difficult to...", "..., thereby reducing...") and "by + -ing" constructions. These are grammatically legal but become an AI-voice tell when overused. Actively vary sentence structures: prefer finite clauses, prepositional phrases, or separate sentences. If more than one participial phrase appears per paragraph, rewrite at least one.
+
 ```
 Weak:    LLMs often lack effective mechanisms, failing to parse compiler messages.
 Better:  LLMs often lack effective mechanisms for parsing compiler messages.
 
 Weak:    We designed [SYSTEM], leveraging compiler feedback to improve performance.
 Better:  We designed [SYSTEM] to leverage compiler feedback for adaptive temperature selection.
+
+Weak:    The method classifies errors, mapping each to a strategy, thereby improving repair rates.
+Better:  The method classifies errors and maps each to a strategy. This mapping improves repair rates.
 ```
 
-**Permitted uses:**
+**Permitted uses (sparingly):**
 
 ```
-Dynamically adjusting temperature is essential.
-The method focuses on leveraging compiler feedback.
-The module processes messages containing ownership errors.
+Dynamically adjusting temperature is essential.        (gerund subject — no alternative)
+The module processes messages containing ownership errors.  (defining participial — concise)
 ```
 
 ### 2.5 Parallel structure
@@ -209,11 +213,13 @@ Better:  This paper proposes a compiler-guided migration framework to improve me
          in legacy systems.
 ```
 
-Short infinitive openings are acceptable:
+Short infinitive openings are acceptable in isolation:
 
 ```
 To address this limitation, we propose a compiler-guided repair strategy.
 ```
+
+> **AI overuse warning:** LLM-generated text frequently opens consecutive sentences or paragraphs with "To + infinitive" ("To mitigate...", "To evaluate...", "To address..."). One or two per section is natural; more becomes repetitive. Vary openings with noun subjects, temporal phrases, or contrastive connectors.
 
 ### 2.7 Formal register
 
@@ -372,3 +378,19 @@ Pick one policy per paper and stay consistent. ACM and IEEE styles do not mandat
 With Oxford:    accuracy, latency, and memory usage
 Without Oxford: accuracy, latency and memory usage
 ```
+
+### 2.16 Em-dashes and punctuation variety
+
+Em-dashes (---) are grammatically valid but less common in CS papers than in journalism or humanities writing.
+
+> **AI overuse warning:** LLM-generated prose inserts em-dashes frequently as a default structuring device, often where a colon, semicolon, period, or parenthetical comma would be more natural. Prefer these alternatives; reserve em-dashes for occasional parenthetical asides where commas would be ambiguous.
+
+```
+AI default:  The framework has three phases --- generation, repair, and validation.
+Prefer:      The framework has three phases: generation, repair, and validation.
+
+AI default:  The borrow checker --- which enforces ownership rules --- rejects the code.
+Prefer:      The borrow checker, which enforces ownership rules, rejects the code.
+```
+
+If a paper already avoids em-dashes, do not introduce them.

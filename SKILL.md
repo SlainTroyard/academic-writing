@@ -126,6 +126,7 @@ Identify the user's task type before responding.
 | **Compress**  | User asks to shorten | Preserve key claims, numbers, citations, caveats; remove redundancy and filler. Do not remove essential caveats. |
 | **Expand**    | User asks to expand bullets | Expand only from provided content; placeholders for missing; no invented citations or results. |
 | **Polish**    | User asks for language improvement only | Minimal semantic change; improve grammar, style, flow, precision. Do not restructure heavily unless needed. |
+| **Interactive Review** | User asks for section-by-section review with confirmation | Present issues individually; wait for user approval before applying each fix; conclude with a factual/logical/coherence final pass. Preferred for full-paper revision workflows. |
 | **Venue Adapt** | User specifies a venue or style | Adapt tone, structure, citation style; respect venue rules over this skill. Key patterns: SE→explicit RQs + Threats to Validity; Systems→design goals + overhead + tail latency; PL→formal definitions + theorems; Security→threat model; ML→ablations + limitations. |
 
 For Venue Adapt, see references/venue-guides.md (SE, Systems, ML, PL, Security).
@@ -265,8 +266,9 @@ Include a separate **Assumptions** section only if you made any beyond the user'
 3. Identify overclaims.
 4. Identify vague or unsupported results.
 5. Identify grammar and style issues.
-6. Suggest concrete fixes.
-7. Provide a rewritten version if useful.
+6. If the paper describes a software system, verify key claims (mechanism descriptions, parameter values, component names) against the implementation. Flag any discrepancies between paper and code.
+7. Suggest concrete fixes.
+8. Provide a rewritten version if useful.
 
 ---
 
@@ -323,13 +325,14 @@ Tables and figures
 
 LaTeX
 [ ] Cross-references use ~ and `\ref{}` / `\eqref{}` (no hardcoded numbers).
-[ ] Capitalized reference words (Figure~3, Table~2, Section~4, Algorithm~1, Equation~(5)).
+[ ] Capitalized reference words (Fig.~3 or Figure~3, Table~2, Section~4, Algorithm~1, Equation~(5)). Use "Fig." in running text (common in IEEE/ACM) or "Figure" per venue style; always spell out "Figure" at the start of a sentence. Do not abbreviate Table, Section, Algorithm, or Equation.
 [ ] No `$$ $$` math delimiters.
 [ ] Math operators use `\mathrm{}` or `\DeclareMathOperator`.
 [ ] siunitx for numbers and units.
 [ ] PDF metadata stripped and self-citations anonymised (double-blind only).
 
 Meta
+[ ] Key technical terms are consistent across all sections (e.g., do not alternate between "error types" and "error categories" for the same concept).
 [ ] English variant is consistent (US or UK, not both).
 [ ] Acronyms defined on first use; no acronym soup; not used in title.
 [ ] Generative-AI disclosure present if AI tools were used.
